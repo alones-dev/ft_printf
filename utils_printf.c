@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   utils_printf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:24:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/09 16:12:53 by kdaumont         ###   ########.fr       */
+/*   Created: 2023/11/09 16:06:58 by kdaumont          #+#    #+#             */
+/*   Updated: 2023/11/09 16:07:12 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+void	ft_putstr(char *s)
+{
+	int i;
 
-int		ft_printf(const char *, ...);
-void	ft_putstr(char *s);
-
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	write(1, s, i);
+}
