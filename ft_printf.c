@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/09 16:28:26 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:18:22 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,55 +26,59 @@ int	is_in_set(int c, char const *set)
 	return (0);
 }
 
-void	check_percent_convert(int c)
+void	check_percent_convert(int c, va_list args)
 {
 	if (c == 'c')
-		printf("char\n");
+		ft_putchar(va_arg(args, int));
 	if (c == 's')
-		printf("string\n");
+		ft_putstr(va_arg(args, char *));
 	if (c == 'p')
-		printf("void\n");
+		ft_putstr("void");
 	if (c == 'd')
-		printf("d10\n");
+		ft_putstr("float");
 	if (c == 'i')
-		printf("i10\n");
+		ft_putstr("int");
 	if (c == 'u')
-		printf("ud10\n");
+		ft_putstr("ud");
 	if (c == 'x')
-		printf("hxl16\n");
+		ft_putstr("hxl");
 	if (c == 'X')
-		printf("hxu16\n");
+		ft_putstr("hxu");
 	if (c == '%')
-		printf("percent\n");
+		ft_putstr("%");
 }
 
-void	check_format(char *s)
+void	check_format(char *s, va_list args)
 {
 	int	i;
-	int	percent;
 
 	i = 0;
-	percent = 0;
 	while (s[i])
 	{
 		if (s[i] == '%' && is_in_set(s[i + 1], "cspdiuxX%"))
 		{
-			check_percent_convert(s[i + 1]);
-			percent++;
+			check_percent_convert(s[i + 1], args);
+			i++;
 		}
+		else
+			ft_putchar(s[i]);
 		i++;
 	}
-	if (percent == 0)
-		ft_putstr(s);
-	printf("%d\n", percent);
 }
 
 int	ft_printf(const char *format, ...)
 {
+	va_list	argList;
+	int		*len;
+
+	len = 0;
+	va_start(argList, (char *)format);
+	check_format((char *)format, argList);
+	va_end(argList);
 }
 
 void	main(void)
 {
 	// printf("%s\n", "test");
-	check_format("tes%ct%%te%sst");
+	ft_printf("salut%s %c%%\n", "coucou", 't');
 }
