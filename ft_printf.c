@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/10 11:18:22 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:18:37 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	is_in_set(int c, char const *set)
 
 void	check_percent_convert(int c, va_list args)
 {
+	int	i;
+
+	i = 0;
 	if (c == 'c')
 		ft_putchar(va_arg(args, int));
 	if (c == 's')
@@ -35,7 +38,7 @@ void	check_percent_convert(int c, va_list args)
 	if (c == 'p')
 		ft_putstr("void");
 	if (c == 'd')
-		ft_putstr("float");
+		ft_putnbr(va_arg(args, int), &i);
 	if (c == 'i')
 		ft_putstr("int");
 	if (c == 'u')
@@ -80,5 +83,6 @@ int	ft_printf(const char *format, ...)
 void	main(void)
 {
 	// printf("%s\n", "test");
-	ft_printf("salut%s %c%%\n", "coucou", 't');
+	// ft_printf("salut%s %c%% eee %d\n", "coucou", 't', 80);
+	printf("%d\n", 12);
 }

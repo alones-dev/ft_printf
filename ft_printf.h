@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:24:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/10 11:37:35 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:37:24 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int		ft_printf(const char *, ...);
 void	ft_putstr(char *s);
-int		ft_putnbr(int n);
+void	ft_putnbr(int n, int *i);
 void	ft_putchar(int c);
 
 #endif
