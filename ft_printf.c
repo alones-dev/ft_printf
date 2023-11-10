@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/10 17:18:37 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:29:50 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	check_percent_convert(int c, va_list args)
 	if (c == 'd')
 		ft_putnbr(va_arg(args, int), &i);
 	if (c == 'i')
-		ft_putstr("int");
+		ft_putnbr(va_arg(args, int), &i);
 	if (c == 'u')
 		ft_putstr("ud");
 	if (c == 'x')
