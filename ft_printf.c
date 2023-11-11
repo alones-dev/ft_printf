@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/11 07:59:45 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/11 08:36:21 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,56 +26,60 @@ int	is_in_set(int c, char const *set)
 	return (0);
 }
 
-void	check_percent_convert(int c, va_list args)
+int	check_percent_convert(int c, va_list args)
 {
 	int	i;
 
-	i = 0;
 	if (c == 'c')
-		ft_putchar(va_arg(args, int));
+		i = ft_putchar(va_arg(args, int));
 	if (c == 's')
-		ft_putstr(va_arg(args, char *));
+		i = ft_putstr(va_arg(args, char *));
 	if (c == 'p')
 		ft_putstr("void");
 	if (c == 'd')
-		convert_base(va_arg(args, int), "0123456789", i);
+		i = convert_base(va_arg(args, int), "0123456789", 0);
 	if (c == 'i')
-		convert_base(va_arg(args, int), "0123456789", i);
+		i = convert_base(va_arg(args, int), "0123456789", 0);
 	if (c == 'u')
-		convert_base(va_arg(args, int), "0123456789", i);
+		i = convert_base(va_arg(args, unsigned int), "0123456789", 0);
 	if (c == 'x')
-		convert_base(va_arg(args, int), "0123456789abcdef", i);
+		i = convert_base(va_arg(args, unsigned int), "0123456789abcdef", 0);
 	if (c == 'X')
-		convert_base(va_arg(args, int), "0123456789ABCDEF", i);
+		i = convert_base(va_arg(args, unsigned int), "0123456789ABCDEF", 0);
 	if (c == '%')
-		ft_putstr("%");
+		i = ft_putchar('%');
+	return (i);
 }
 
-void	check_format(char *s, va_list args)
+int	check_format(char *s, va_list args)
 {
 	int	i;
+	int	len;
 
 	i = 0;
+	len = 0;
 	while (s[i])
 	{
 		if (s[i] == '%' && is_in_set(s[i + 1], "cspdiuxX%"))
 		{
-			check_percent_convert(s[i + 1], args);
+			len = len + check_percent_convert(s[i + 1], args);
 			i++;
 		}
 		else
-			ft_putchar(s[i]);
+			len = len + ft_putchar(s[i]);
 		i++;
 	}
+	return (len);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	argList;
-	int		*len;
+	int		len;
 
 	len = 0;
 	va_start(argList, (char *)format);
-	check_format((char *)format, argList);
+	len = check_format((char *)format, argList);
 	va_end(argList);
+	return (len - 1);
 }

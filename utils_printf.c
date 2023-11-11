@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:06:58 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/11 07:53:30 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/11 08:09:33 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
 
@@ -30,11 +30,13 @@ void	ft_putstr(char *s)
 	while (s[i])
 		i++;
 	write(1, s, i);
+	return (i);
 }
 
-void	ft_putchar(int c)
+int	ft_putchar(int c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
 int	convert_base(unsigned int n, char *base, int i)
