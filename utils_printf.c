@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:06:58 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/10 17:44:44 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/11 06:32:00 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putchar(int c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int n, int *i, int base, char *formatBase)
+void	ft_putnbr_base(int n, int *i, int base, char *formatBase)
 {
 	if (n == -2147483648)
 	{
@@ -43,12 +43,20 @@ void	ft_putnbr(int n, int *i, int base, char *formatBase)
 	}
 	if (n >= 10)
 	{
-		ft_putnbr(n / base, i, base, formatBase);
-		ft_putnbr(n % base, i, base, formatBase);
+		ft_putnbr_base(n / base, i, base, formatBase);
+		ft_putnbr_base(n % base, i, base, formatBase);
 	}
 	if (n < 10)
 	{
 		ft_putchar(formatBase[n % base]);
 		(*i)++;
 	}
+}
+
+void	main(void)
+{
+	int i;
+
+	i = 0;
+	ft_putnbr_base(255, &i, 16, "0123456789ABCDEF");
 }
