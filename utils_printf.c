@@ -6,11 +6,21 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:06:58 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/11 06:32:00 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/11 07:53:30 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 void	ft_putstr(char *s)
 {
@@ -27,36 +37,20 @@ void	ft_putchar(int c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr_base(int n, int *i, int base, char *formatBase)
+int	convert_base(unsigned int n, char *base, int i)
 {
-	if (n == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		*i = 12;
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-		(*i)++;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_base(n / base, i, base, formatBase);
-		ft_putnbr_base(n % base, i, base, formatBase);
-	}
-	if (n < 10)
-	{
-		ft_putchar(formatBase[n % base]);
-		(*i)++;
-	}
-}
+	int len;
 
-void	main(void)
-{
-	int i;
-
-	i = 0;
-	ft_putnbr_base(255, &i, 16, "0123456789ABCDEF");
+	len = ft_strlen(base);
+	if (n >= len)
+	{
+		i = convert_base(n / len, base, i + 1);
+		convert_base(n % len, base, i);
+	}
+	if (n < len)
+	{
+		ft_putchar(base[n]);
+		i++;
+	}
+	return (i);
 }

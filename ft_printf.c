@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/10 17:29:50 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/11 07:59:45 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ void	check_percent_convert(int c, va_list args)
 	if (c == 'p')
 		ft_putstr("void");
 	if (c == 'd')
-		ft_putnbr(va_arg(args, int), &i);
+		convert_base(va_arg(args, int), "0123456789", i);
 	if (c == 'i')
-		ft_putnbr(va_arg(args, int), &i);
+		convert_base(va_arg(args, int), "0123456789", i);
 	if (c == 'u')
-		ft_putstr("ud");
+		convert_base(va_arg(args, int), "0123456789", i);
 	if (c == 'x')
-		ft_putstr("hxl");
+		convert_base(va_arg(args, int), "0123456789abcdef", i);
 	if (c == 'X')
-		ft_putstr("hxu");
+		convert_base(va_arg(args, int), "0123456789ABCDEF", i);
 	if (c == '%')
 		ft_putstr("%");
 }
@@ -78,11 +78,4 @@ int	ft_printf(const char *format, ...)
 	va_start(argList, (char *)format);
 	check_format((char *)format, argList);
 	va_end(argList);
-}
-
-void	main(void)
-{
-	// printf("%s\n", "test");
-	// ft_printf("salut%s %c%% eee %d\n", "coucou", 't', 80);
-	printf("%d\n", 12);
 }
