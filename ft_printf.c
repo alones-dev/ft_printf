@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/11 08:36:21 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/13 10:56:02 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	check_percent_convert(int c, va_list args)
 	if (c == 'p')
 		ft_putstr("void");
 	if (c == 'd')
-		i = convert_base(va_arg(args, int), "0123456789", 0);
+		i = ft_putnbr(va_arg(args, int));
 	if (c == 'i')
-		i = convert_base(va_arg(args, int), "0123456789", 0);
+		i = ft_putnbr(va_arg(args, int));
 	if (c == 'u')
 		i = convert_base(va_arg(args, unsigned int), "0123456789", 0);
 	if (c == 'x')
@@ -66,7 +66,10 @@ int	check_format(char *s, va_list args)
 			i++;
 		}
 		else
-			len = len + ft_putchar(s[i]);
+		{
+			ft_putchar(s[i]);
+			len++;
+		}
 		i++;
 	}
 	return (len);
@@ -81,5 +84,5 @@ int	ft_printf(const char *format, ...)
 	va_start(argList, (char *)format);
 	len = check_format((char *)format, argList);
 	va_end(argList);
-	return (len - 1);
+	return (len);
 }
