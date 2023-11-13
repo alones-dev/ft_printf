@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:06:58 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/13 16:42:07 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:18:11 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,26 +62,22 @@ int	convert_base(unsigned int n, char *base, int i)
 	return (i);
 }
 
-int	convert_ptr(unsigned long n, char *base, int i)
+int	convert_ptr(size_t n, char *base, int i)
 {
 	int	len;
 
-	if (!n)
-	{
-		write(1, "(nil)", 5);
-		return (5);
-	}
 	len = ft_strlen(base);
-	// write(1, "0x", 2);
+	if (i == 0)
+		i = ft_putstr("0x");
 	if (n >= len)
 	{
 		i = convert_ptr(n / len, base, i + 1);
-		convert_base(n % len, base, i);
+		convert_ptr(n % len, base, i);
 	}
 	if (n < len)
 	{
 		ft_putchar(base[n]);
 		i++;
 	}
-	return (i + 2);
+	return (i);
 }

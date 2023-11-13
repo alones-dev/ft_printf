@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/13 16:40:11 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:17:43 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int	ft_printf(const char *format, ...)
 }
 #include <limits.h>
 
-int	main(void)
-{
-	// int *str = ;
-	printf("%p\n", LONG_MIN);
-	ft_printf("%p\n", LONG_MIN);
-}
+// int	main(void)
+// {
+// 	// int *str = ;
+// 	printf("%p\n", LONG_MIN);
+// 	ft_printf("%p\n", LONG_MIN);
+// }
