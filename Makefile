@@ -6,13 +6,13 @@
 #    By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 15:24:46 by kdaumont          #+#    #+#              #
-#    Updated: 2023/11/11 08:01:36 by kdaumont         ###   ########.fr        #
+#    Updated: 2023/11/13 10:57:21 by kdaumont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-C_FILES = ft_printf.c utils_printf.c
+C_FILES = ft_printf.c utils_printf.c utils_2_printf.c
 			
 OBJS_FILES = $(C_FILES:.c=.o)
 

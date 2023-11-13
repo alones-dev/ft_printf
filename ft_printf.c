@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/13 10:56:02 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/13 11:04:53 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,9 @@ int	ft_printf(const char *format, ...)
 	len = check_format((char *)format, argList);
 	va_end(argList);
 	return (len);
+}
+
+int	main(int argc, char const *argv[])
+{
+	printf("%s\n", NULL);
 }
