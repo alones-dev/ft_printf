@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/13 15:09:18 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:31:08 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	check_percent_convert(int c, va_list args)
 	if (c == 's')
 		i = ft_putstr(va_arg(args, char *));
 	if (c == 'p')
-		i = convert_ptr(va_arg(args, unsigned long), "0123456789abcdef", i);
+		i = convert_ptr(va_arg(args, unsigned long), "0123456789abcdef", 0);
 	if (c == 'd')
 		i = ft_putnbr(va_arg(args, int));
 	if (c == 'i')
@@ -89,13 +89,7 @@ int	ft_printf(const char *format, ...)
 /*
 int	main(void)
 {
-
-	unsigned long c;
-	c = (unsigned long)str;
-	printf("%p\n%ld\nOx%lx\n", str, c, c);
-	free(str);
-	return (0);
-	char *str = NULL;
+	int *str = -1;
 	printf("%p\n", str);
 	ft_printf("%p\n", str);
 }*/
