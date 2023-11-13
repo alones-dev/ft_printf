@@ -6,7 +6,7 @@
 #    By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 15:24:46 by kdaumont          #+#    #+#              #
-#    Updated: 2023/11/13 10:57:21 by kdaumont         ###   ########.fr        #
+#    Updated: 2023/11/13 16:19:35 by kdaumont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME):${OBJS_FILES}
 all: $(NAME)
 
 clean:
-		rm -rf $(OBJS_FILES) $(OBJS_FILES_BONUS)
+		rm -rf $(OBJS_FILES)
 
 fclean: clean
 		rm -rf $(NAME)
