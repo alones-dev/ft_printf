@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:24:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/13 16:26:20 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:21:17 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *format, ...);
 int	ft_putstr(char *s);
 int	convert_base(unsigned int n, char *base, int i);
 int	ft_putnbr(int n);

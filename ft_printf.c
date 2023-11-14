@@ -6,7 +6,7 @@
 /*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:31:00 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/13 22:17:43 by kdaumont         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:28:32 by kdaumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,12 @@ int	check_format(char *s, va_list args)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	argList;
+	va_list	arg_list;
 	int		len;
 
 	len = 0;
-	va_start(argList, (char *)format);
-	len = check_format((char *)format, argList);
-	va_end(argList);
+	va_start(arg_list, (char *)format);
+	len = check_format((char *)format, arg_list);
+	va_end(arg_list);
 	return (len);
 }
-#include <limits.h>
-
-// int	main(void)
-// {
-// 	// int *str = ;
-// 	printf("%p\n", LONG_MIN);
-// 	ft_printf("%p\n", LONG_MIN);
-// }
