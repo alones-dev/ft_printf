@@ -80,6 +80,8 @@ int	ft_printf(const char *format, ...)
 	va_list	arg_list;
 	int		len;
 
+ if (!format)
+	 return (-1);
 	len = 0;
 	va_start(arg_list, (char *)format);
 	len = check_format((char *)format, arg_list);
